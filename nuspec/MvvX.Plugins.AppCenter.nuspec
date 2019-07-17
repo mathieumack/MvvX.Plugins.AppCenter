@@ -50,8 +50,6 @@
         <!-- Touch -->
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.XML" target="lib\Xamarin.iOS10" />
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.dll" target="lib\Xamarin.iOS10" />
-        <file src="..\dlls\AppCenterios-4.1.0.3\lib\ios-unified\HockeySDK.dll" target="lib\Xamarin.iOS10" />
-        <file src="..\dlls\AppCenterios-4.1.0.3\lib\ios-unified\HockeySDK.iOSBindings.dll" target="lib\Xamarin.iOS10" />
         <file src="..\MvvX.Plugins.AppCenter.Touch\bin\Release\MvvX.Plugins.AppCenter.Touch.dll" target="lib\Xamarin.iOS10" />
         <file src="BootstrapContentTouch\AppCenterPluginBootstrap.cs.pp" target="content\Xamarin.iOS10\Bootstrap\AppCenterPluginBootstrap.cs.pp" />
     </files>
