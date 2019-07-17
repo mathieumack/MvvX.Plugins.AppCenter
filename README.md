@@ -5,7 +5,7 @@ Use AppCenter SDK on a MvvmCross application.
 
 ## Build 
 
-[![Build status](https://ci.appveyor.com/api/projects/status/qoqollxlhlus880l?svg=true)](https://ci.appveyor.com/project/mathieumack/mvvx-plugins-AppCenter)
+[![Build status](https://dev.azure.com/mackmathieu/Github/_apis/build/status/MvvX.Plugins.AppCenter)](https://dev.azure.com/mackmathieu/Github/_build/latest?definitionId=7)
 
 ## Nuget
 
