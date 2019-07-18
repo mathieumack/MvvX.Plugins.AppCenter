@@ -4,14 +4,14 @@ using System.IO;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace MvvX.Plugins.AppCenter.Wpf
+namespace MvvX.Plugins.AppCenter.Droid
 {
-    public class HockeyClientWpf : IAppCenterClient
+    public class AppCenterClient : IAppCenterClient
     {
-        public void Configure(string identifier, 
-                                string version, 
-                                bool activateTelemetry, 
-                                bool activateMetrics, 
+        public void Configure(string identifier,
+                                string version,
+                                bool activateTelemetry,
+                                bool activateMetrics,
                                 bool activateCrashReports,
                                 string automaticAttachedFilePathOnCrash)
         {

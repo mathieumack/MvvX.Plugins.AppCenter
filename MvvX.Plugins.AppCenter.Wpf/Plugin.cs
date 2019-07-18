@@ -7,7 +7,7 @@ namespace MvvX.Plugins.AppCenter.Wpf
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IAppCenterClient>(new HockeyClientWpf());
+            Mvx.RegisterSingleton<IAppCenterClient>(new AppCenterClient());
         }
     }
 }

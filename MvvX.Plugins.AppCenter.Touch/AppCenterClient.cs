@@ -6,7 +6,7 @@ using Microsoft.AppCenter.Crashes;
 
 namespace MvvX.Plugins.AppCenter.Touch
 {
-    public class HockeyClientTouch : IAppCenterClient
+    public class AppCenterClient : IAppCenterClient
     {
         public void Configure(string identifier,
                                 string version,

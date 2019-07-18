@@ -8,7 +8,7 @@ namespace MvvX.Plugins.AppCenter.Droid
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IAppCenterClient>(new HockeyClientDroid());
+            Mvx.RegisterSingleton<IAppCenterClient>(new AppCenterClient());
         }
     }
 }

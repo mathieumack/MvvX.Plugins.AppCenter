@@ -7,7 +7,7 @@ namespace MvvX.Plugins.AppCenter.Touch
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IAppCenterClient>(new HockeyClientTouch());
+            Mvx.RegisterSingleton<IAppCenterClient>(new AppCenterClient());
         }
     }
 }
