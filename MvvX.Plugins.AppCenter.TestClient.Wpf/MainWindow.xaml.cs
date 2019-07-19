@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using MvvX.Plugins.AppCenter.Wpf;
 using static System.Environment;
@@ -34,6 +35,11 @@ namespace MvvX.Plugins.AppCenter.TestClient.Wpf
         private void CreateSampleException_Click(object sender, RoutedEventArgs e)
         {
             client.TrackException(new ArgumentNullException(nameof(sender)), new Dictionary<string, string>());
+        }
+
+        private void GenerateException_Click(object sender, RoutedEventArgs e)
+        {
+            throw new ArgumentNullException(nameof(sender));
         }
     }
 }

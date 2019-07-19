@@ -15,25 +15,21 @@ namespace MvvX.Plugins.AppCenter.Wpf
                                 bool activateCrashReports,
                                 string automaticAttachedFilePathOnCrash)
         {
-            Microsoft.AppCenter.AppCenter.Start(identifier);
+            Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
-            if (activateTelemetry || activateMetrics)
-                Analytics.SetEnabledAsync(true);
-            if (activateCrashReports)
+            Analytics.SetEnabledAsync(activateTelemetry || activateMetrics);
+
+            Crashes.SetEnabledAsync(activateCrashReports);
+            if (activateCrashReports && !string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
             {
-                Crashes.SetEnabledAsync(true);
-
-                if (!string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
+                Crashes.GetErrorAttachments = (ErrorReport report) =>
                 {
-                    Crashes.GetErrorAttachments = (ErrorReport report) =>
-                    {
                         // Your code goes here.
                         return new ErrorAttachmentLog[]
-                        {
+                    {
                             ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "image/jpeg")
-                        };
                     };
-                }
+                };
             }
         }
 

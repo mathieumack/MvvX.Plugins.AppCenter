@@ -17,8 +17,8 @@
                 <dependency id="MvvmCross.Platform" version="4.2.2" />
             </group>
             <group targetFramework="net45">
-                <dependency id="Microsoft.AppCenter.Analytics" version="2.1.1" />
-                <dependency id="Microsoft.AppCenter.Crashes" version="2.1.1" />
+                <dependency id="Microsoft.AppCenter.Analytics" version="2.2.1-preview" />
+                <dependency id="Microsoft.AppCenter.Crashes" version="2.2.1-preview" />
             </group>
             <group targetFramework="MonoAndroid">
               <dependency id="Microsoft.AppCenter.Analytics" version="2.1.1" />

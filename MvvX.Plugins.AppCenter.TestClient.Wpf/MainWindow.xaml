@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Button Content="1. Configure" Name="configure" Click="Configure_Click"></Button>
+        <Button Content="1. Configure" Margin="10" Name="configure" Click="Configure_Click"></Button>
         <Button Content="2. Create event" Margin="10" Name="createEvent" Click="CreateEvent_Click"></Button>
         <Button Content="3. Create sample exception data" Margin="10" Name="createSampleException" Click="CreateSampleException_Click"></Button>
+        <Button Content="4. Generate an exception" Margin="10" Name="generateException" Click="GenerateException_Click"></Button>
     </StackPanel>
 </Window>
