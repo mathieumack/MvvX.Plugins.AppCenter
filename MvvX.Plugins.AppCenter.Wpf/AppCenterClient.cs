@@ -29,7 +29,7 @@ namespace MvvX.Plugins.AppCenter.Wpf
                         // Your code goes here.
                         return new ErrorAttachmentLog[]
                     {
-                            ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "image/jpeg")
+                            ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "text/plain")
                     };
                 };
             }
