@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
@@ -8,7 +9,7 @@ namespace MvvX.Plugins.AppCenter.Wpf
 {
     public class AppCenterClient : IAppCenterClient
     {
-        public void Configure(string identifier, 
+        public async Task Configure(string identifier, 
                                 string version, 
                                 bool activateTelemetry, 
                                 bool activateMetrics, 
@@ -17,9 +18,10 @@ namespace MvvX.Plugins.AppCenter.Wpf
         {
             Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
-            Analytics.SetEnabledAsync(activateTelemetry || activateMetrics);
+            await Analytics.SetEnabledAsync(activateTelemetry || activateMetrics);
 
-            Crashes.SetEnabledAsync(activateCrashReports);
+            await Crashes.SetEnabledAsync(activateCrashReports);
+
             if (activateCrashReports && !string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
             {
                 Crashes.GetErrorAttachments = (ErrorReport report) =>

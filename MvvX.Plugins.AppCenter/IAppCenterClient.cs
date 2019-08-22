@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MvvX.Plugins.AppCenter
 {
@@ -9,7 +10,7 @@ namespace MvvX.Plugins.AppCenter
         /// Start configuration of the api with your app identifier
         /// </summary>
         /// <param name="identifier"></param>
-        void Configure(string identifier, 
+        Task Configure(string identifier, 
                                 string version, 
                                 bool activateTelemetry, 
                                 bool activateMetrics, 
