@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
@@ -8,32 +9,29 @@ namespace MvvX.Plugins.AppCenter.Droid
 {
     public class AppCenterClient : IAppCenterClient
     {
-        public void Configure(string identifier,
+        public async Task Configure(string identifier,
                                 string version,
                                 bool activateTelemetry,
                                 bool activateMetrics,
                                 bool activateCrashReports,
                                 string automaticAttachedFilePathOnCrash)
         {
-            Microsoft.AppCenter.AppCenter.Start(identifier);
+            Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
-            if (activateTelemetry || activateMetrics)
-                Analytics.SetEnabledAsync(true);
-            if (activateCrashReports)
+            await Analytics.SetEnabledAsync(activateTelemetry || activateMetrics);
+
+            await Crashes.SetEnabledAsync(activateCrashReports);
+
+            if (activateCrashReports && !string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
             {
-                Crashes.SetEnabledAsync(true);
-
-                if (!string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
+                Crashes.GetErrorAttachments = (ErrorReport report) =>
                 {
-                    Crashes.GetErrorAttachments = (ErrorReport report) =>
-                    {
-                        // Your code goes here.
-                        return new ErrorAttachmentLog[]
-                        {
-                            ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "image/jpeg")
-                        };
-                    };
-                }
+                    // Your code goes here.
+                    return new ErrorAttachmentLog[]
+                {
+                            ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "text/plain")
+                };
+                };
             }
         }
 
