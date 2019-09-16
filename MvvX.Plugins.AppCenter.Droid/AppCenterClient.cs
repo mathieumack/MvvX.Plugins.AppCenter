@@ -14,7 +14,7 @@ namespace MvvX.Plugins.AppCenter.Droid
                                 bool activateTelemetry,
                                 bool activateMetrics,
                                 bool activateCrashReports,
-                                string automaticAttachedFilePathOnCrash)
+                                string[] automaticAttachedFilePathOnCrash)
         {
             Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
@@ -22,15 +22,19 @@ namespace MvvX.Plugins.AppCenter.Droid
 
             await Crashes.SetEnabledAsync(activateCrashReports);
 
-            if (activateCrashReports && !string.IsNullOrWhiteSpace(automaticAttachedFilePathOnCrash))
+            if (activateCrashReports && automaticAttachedFilePathOnCrash != null)
             {
                 Crashes.GetErrorAttachments = (ErrorReport report) =>
                 {
-                    // Your code goes here.
-                    return new ErrorAttachmentLog[]
-                {
-                            ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(automaticAttachedFilePathOnCrash), "logfile.log", "text/plain")
-                };
+                    var errorAttachments = new List<ErrorAttachmentLog>();
+                    for (int i = 0; i < automaticAttachedFilePathOnCrash.Length; i++)
+                    {
+                        var filePath = automaticAttachedFilePathOnCrash[i];
+                        if (!string.IsNullOrWhiteSpace(filePath)
+                            && File.Exists(filePath))
+                            errorAttachments.Add(ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(filePath), Path.GetFileName(filePath), "text/plain"));
+                    }
+                    return errorAttachments.ToArray();
                 };
             }
         }
