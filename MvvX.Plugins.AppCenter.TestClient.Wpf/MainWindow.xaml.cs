@@ -24,7 +24,7 @@ namespace MvvX.Plugins.AppCenter.TestClient.Wpf
         private void Configure_Click(object sender, RoutedEventArgs e)
         {
             // Sample code, place your AppId here
-            client.Configure("Set appcenter identifier here", "4.0.0.2", true, true, true, "Set log file path here");
+            client.Configure("Set appcenter identifier here", "4.0.0.2", true, true, true, new string[] { "Set log file path here" });
         }
 
         private void CreateEvent_Click(object sender, RoutedEventArgs e)

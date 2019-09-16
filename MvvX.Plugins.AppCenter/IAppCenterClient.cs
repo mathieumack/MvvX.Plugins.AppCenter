@@ -15,7 +15,7 @@ namespace MvvX.Plugins.AppCenter
                                 bool activateTelemetry, 
                                 bool activateMetrics, 
                                 bool activateCrashReports,
-                                string automaticAttachedFilePathOnCrash);
+                                string[] automaticAttachedFilePathOnCrash);
 
         void TrackEvent(string eventName);
 
