@@ -38,18 +38,21 @@
         <!-- Wpf -->
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.XML" target="lib\net45" />
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.dll" target="lib\net45" />
+        <file src="..\MvvX.Plugins.AppCenter.Platform\bin\Release\MvvX.Plugins.AppCenter.Platform.dll" target="lib\net45" />
         <file src="..\MvvX.Plugins.AppCenter.Wpf\bin\Release\MvvX.Plugins.AppCenter.Wpf.dll" target="lib\net45" />
         <file src="BootstrapContent\AppCenterPluginBootstrap.cs.pp" target="content\net45\Bootstrap\AppCenterPluginBootstrap.cs.pp" />
         
         <!-- Android -->
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.XML" target="lib\MonoAndroid" />
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.dll" target="lib\MonoAndroid" />
+        <file src="..\MvvX.Plugins.AppCenter.Platform\bin\Release\MvvX.Plugins.AppCenter.Platform.dll" target="MonoAndroid" />
         <file src="..\MvvX.Plugins.AppCenter.Droid\bin\Release\MvvX.Plugins.AppCenter.Droid.dll" target="lib\MonoAndroid" />
         <file src="BootstrapContent\AppCenterPluginBootstrap.cs.pp" target="content\MonoAndroid\Bootstrap\AppCenterPluginBootstrap.cs.pp" />
         
         <!-- Touch -->
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.XML" target="lib\Xamarin.iOS10" />
         <file src="..\MvvX.Plugins.AppCenter\bin\Release\MvvX.Plugins.AppCenter.dll" target="lib\Xamarin.iOS10" />
+        <file src="..\MvvX.Plugins.AppCenter.Platform\bin\Release\MvvX.Plugins.AppCenter.Platform.dll" target="lib\Xamarin.iOS10" />
         <file src="..\MvvX.Plugins.AppCenter.Touch\bin\Release\MvvX.Plugins.AppCenter.Touch.dll" target="lib\Xamarin.iOS10" />
         <file src="BootstrapContentTouch\AppCenterPluginBootstrap.cs.pp" target="content\Xamarin.iOS10\Bootstrap\AppCenterPluginBootstrap.cs.pp" />
     </files>
