@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using MvvX.Plugins.AppCenter.Platform;
 using MvvX.Plugins.AppCenter.Wpf;
 
 namespace MvvX.Plugins.AppCenter.TestClient.Wpf
@@ -17,10 +18,11 @@ namespace MvvX.Plugins.AppCenter.TestClient.Wpf
             InitializeComponent();
 
             client = new AppCenterClient();
-            client.Configure("<Set Api key here>", "4.0.0.2", true, true, true, new string[] 
-            {
-                @"<Set file path to log file 1 here>",
-                @"<Set file path to log file 2 here>"
+            client.Configure("<Set Api key here>", "4.0.0.2", true, true, true,
+            @"log file 1.log",
+            new string[] {
+                @"additional file 1.log",
+                @"additional file 2.log"
             });
         }
 

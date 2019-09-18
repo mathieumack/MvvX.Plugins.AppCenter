@@ -66,7 +66,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppCenterClient.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MvvX.Plugins.AppCenter.Platform\MvvX.Plugins.AppCenter.Platform.csproj">
+      <Project>{1F094355-1D41-49E1-8B83-FA52E8AE0BF5}</Project>
+      <Name>MvvX.Plugins.AppCenter.Platform</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvvX.Plugins.AppCenter\MvvX.Plugins.AppCenter.csproj">
       <Project>{2c13c7c5-aff2-4dcf-b636-9a24e925aca7}</Project>
       <Name>MvvX.Plugins.AppCenter</Name>
