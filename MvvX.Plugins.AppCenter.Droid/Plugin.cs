@@ -1,6 +1,6 @@
 ﻿using MvvmCross.Platform;
-using MvvmCross.Platform.Droid.Platform;
 using MvvmCross.Platform.Plugins;
+using MvvX.Plugins.AppCenter.Platform;
 
 namespace MvvX.Plugins.AppCenter.Droid
 {

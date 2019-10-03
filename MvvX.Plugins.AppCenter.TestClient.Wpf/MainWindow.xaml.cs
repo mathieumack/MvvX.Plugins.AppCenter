@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows;
+using MvvX.Plugins.AppCenter.Platform;
 using MvvX.Plugins.AppCenter.Wpf;
-using static System.Environment;
 
 namespace MvvX.Plugins.AppCenter.TestClient.Wpf
 {
@@ -19,12 +18,12 @@ namespace MvvX.Plugins.AppCenter.TestClient.Wpf
             InitializeComponent();
 
             client = new AppCenterClient();
-        }
-
-        private void Configure_Click(object sender, RoutedEventArgs e)
-        {
-            // Sample code, place your AppId here
-            client.Configure("Set appcenter identifier here", "4.0.0.2", true, true, true, new string[] { "Set log file path here" });
+            client.Configure("<Set Api key here>", "4.0.0.2", true, true, true,
+            @"log file 1.log",
+            new string[] {
+                @"additional file 1.log",
+                @"additional file 2.log"
+            });
         }
 
         private void CreateEvent_Click(object sender, RoutedEventArgs e)
