@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -9,12 +11,13 @@ namespace MvvX.Plugins.AppCenter
 {
     public class AppCenterClient : IAppCenterClient
     {
-        public async Task Configure(string identifier, 
-                                string version, 
-                                bool activateTelemetry, 
-                                bool activateMetrics, 
+        public async Task Configure(string identifier,
+                                string version,
+                                bool activateTelemetry,
+                                bool activateMetrics,
                                 bool activateCrashReports,
-                                string[] automaticAttachedFilePathOnCrash)
+                                string errorTextFileAttachment,
+                                IEnumerable<string> additionnalTextFileattachment)
         {
             Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
@@ -22,19 +25,40 @@ namespace MvvX.Plugins.AppCenter
 
             await Crashes.SetEnabledAsync(activateCrashReports);
 
-            if (activateCrashReports && automaticAttachedFilePathOnCrash != null)
+            if (activateCrashReports)
             {
                 Crashes.GetErrorAttachments = (ErrorReport report) =>
                 {
                     var errorAttachments = new List<ErrorAttachmentLog>();
-                    for (int i = 0; i < automaticAttachedFilePathOnCrash.Length; i++)
+
+                    if (!string.IsNullOrWhiteSpace(errorTextFileAttachment) && File.Exists(errorTextFileAttachment))
+                        errorAttachments.Add(ErrorAttachmentLog.AttachmentWithText(File.ReadAllText(errorTextFileAttachment), Path.GetFileName(errorTextFileAttachment)));
+
+                    if (additionnalTextFileattachment != null)
                     {
-                        var filePath = automaticAttachedFilePathOnCrash[i];
-                        if (!string.IsNullOrWhiteSpace(filePath)
-                            && File.Exists(filePath))
-                            errorAttachments.Add(ErrorAttachmentLog.AttachmentWithBinary(File.ReadAllBytes(filePath), Path.GetFileName(filePath), "text/plain"));
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
+                            {
+                                foreach (var additionalAttachment in additionnalTextFileattachment
+                                                                        .Where(filePath => !string.IsNullOrWhiteSpace(filePath) && File.Exists(filePath)))
+                                {
+                                    var demoFile = archive.CreateEntry(Path.GetFileName(additionalAttachment));
+
+                                    using (var entryStream = demoFile.Open())
+                                    using (var streamWriter = new StreamWriter(entryStream))
+                                    {
+                                        streamWriter.Write(File.ReadAllText(additionalAttachment));
+                                    }
+                                }
+                            }
+
+                            memoryStream.Seek(0, SeekOrigin.Begin);
+                            errorAttachments.Add(ErrorAttachmentLog.AttachmentWithBinary(memoryStream.ToArray(), "Additionalcontent.zip", "application/zip"));
+                        }
                     }
-                    return errorAttachments.ToArray();
+
+                    return errorAttachments;
                 };
             }
         }
