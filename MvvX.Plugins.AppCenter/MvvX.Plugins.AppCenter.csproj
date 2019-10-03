@@ -8,6 +8,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Product>This package contains the AppCenter plugin for MvvmCross</Product>
+    <ProjectGuid>1a67985d-3b4a-483d-9efa-d822bc19ac2d</ProjectGuid>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/mathieumack/MvvX.Plugins.AppCenter</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mathieumack/MvvX.Plugins.AppCenter</PackageProjectUrl>

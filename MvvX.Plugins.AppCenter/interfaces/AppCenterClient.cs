@@ -65,7 +65,7 @@ namespace MvvX.Plugins.AppCenter
 
         public void TrackEvent(string eventName)
         {
-            Analytics.TrackEvent(eventName);
+            Analytics.TrackEvent(eventName); 
         }
 
         public void TrackEvent(string eventName, IDictionary<string, string> properties)
