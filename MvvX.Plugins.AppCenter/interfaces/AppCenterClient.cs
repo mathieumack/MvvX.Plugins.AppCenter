@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace MvvX.Plugins.AppCenter.Droid
+namespace MvvX.Plugins.AppCenter
 {
     public class AppCenterClient : IAppCenterClient
     {
-        public async Task Configure(string identifier,
-                                string version,
-                                bool activateTelemetry,
-                                bool activateMetrics,
+        public async Task Configure(string identifier, 
+                                string version, 
+                                bool activateTelemetry, 
+                                bool activateMetrics, 
                                 bool activateCrashReports,
                                 string[] automaticAttachedFilePathOnCrash)
         {
