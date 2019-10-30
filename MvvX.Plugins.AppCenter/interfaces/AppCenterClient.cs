@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace MvvX.Plugins.AppCenter.Platform
+namespace MvvX.Plugins.AppCenter
 {
     public class AppCenterClient : IAppCenterClient
     {
-        public async Task Configure(string identifier, 
-                                string version, 
-                                bool activateTelemetry, 
-                                bool activateMetrics, 
+        public async Task Configure(string identifier,
+                                string version,
+                                bool activateTelemetry,
+                                bool activateMetrics,
                                 bool activateCrashReports,
                                 string errorTextFileAttachment,
                                 IEnumerable<string> additionnalTextFileattachment)
@@ -34,13 +34,13 @@ namespace MvvX.Plugins.AppCenter.Platform
                     if (!string.IsNullOrWhiteSpace(errorTextFileAttachment) && File.Exists(errorTextFileAttachment))
                         errorAttachments.Add(ErrorAttachmentLog.AttachmentWithText(File.ReadAllText(errorTextFileAttachment), Path.GetFileName(errorTextFileAttachment)));
 
-                    if(additionnalTextFileattachment != null)
+                    if (additionnalTextFileattachment != null)
                     {
                         using (var memoryStream = new MemoryStream())
                         {
                             using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                             {
-                                foreach(var additionalAttachment in additionnalTextFileattachment
+                                foreach (var additionalAttachment in additionnalTextFileattachment
                                                                         .Where(filePath => !string.IsNullOrWhiteSpace(filePath) && File.Exists(filePath)))
                                 {
                                     var demoFile = archive.CreateEntry(Path.GetFileName(additionalAttachment));
@@ -65,7 +65,7 @@ namespace MvvX.Plugins.AppCenter.Platform
 
         public void TrackEvent(string eventName)
         {
-            Analytics.TrackEvent(eventName);
+            Analytics.TrackEvent(eventName); 
         }
 
         public void TrackEvent(string eventName, IDictionary<string, string> properties)
