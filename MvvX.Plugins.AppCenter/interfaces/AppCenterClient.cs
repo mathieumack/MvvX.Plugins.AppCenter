@@ -12,12 +12,12 @@ namespace MvvX.Plugins.AppCenter
     public class AppCenterClient : IAppCenterClient
     {
         public async Task Configure(string identifier,
-                                string version,
-                                bool activateTelemetry,
-                                bool activateMetrics,
-                                bool activateCrashReports,
-                                string errorTextFileAttachment,
-                                IEnumerable<string> additionnalTextFileattachment)
+                                    string version,
+                                    bool activateTelemetry,
+                                    bool activateMetrics,
+                                    bool activateCrashReports,
+                                    string errorTextFileAttachment,
+                                    IEnumerable<string> additionnalTextFileattachment)
         {
             Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
@@ -46,9 +46,11 @@ namespace MvvX.Plugins.AppCenter
                                     var demoFile = archive.CreateEntry(Path.GetFileName(additionalAttachment));
 
                                     using (var entryStream = demoFile.Open())
-                                    using (var streamWriter = new StreamWriter(entryStream))
                                     {
-                                        streamWriter.Write(File.ReadAllText(additionalAttachment));
+                                        using (var streamWriter = new StreamWriter(entryStream))
+                                        {
+                                            streamWriter.Write(File.ReadAllText(additionalAttachment));
+                                        }
                                     }
                                 }
                             }
