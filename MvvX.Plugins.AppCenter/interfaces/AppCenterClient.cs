@@ -43,14 +43,10 @@ namespace MvvX.Plugins.AppCenter
                                 foreach (var additionalAttachment in additionnalTextFileattachment
                                                                         .Where(filePath => !string.IsNullOrWhiteSpace(filePath) && File.Exists(filePath)))
                                 {
-                                    var demoFile = archive.CreateEntry(Path.GetFileName(additionalAttachment));
-
-                                    using (var entryStream = demoFile.Open())
+                                    var newZipentry = archive.CreateEntry(Path.GetFileName(additionalAttachment));
+                                    using (var streamWriter = new StreamWriter(newZipentry.Open()))
                                     {
-                                        using (var streamWriter = new StreamWriter(entryStream))
-                                        {
-                                            streamWriter.Write(File.ReadAllText(additionalAttachment));
-                                        }
+                                        streamWriter.Write(File.ReadAllText(additionalAttachment));
                                     }
                                 }
                             }
@@ -67,12 +63,17 @@ namespace MvvX.Plugins.AppCenter
 
         public void TrackEvent(string eventName)
         {
-            Analytics.TrackEvent(eventName); 
+            TrackEvent(eventName, null);
         }
 
         public void TrackEvent(string eventName, IDictionary<string, string> properties)
         {
             Analytics.TrackEvent(eventName, properties);
+        }
+
+        public void TrackException(Exception ex)
+        {
+            TrackException(ex, null);
         }
 
         public void TrackException(Exception ex, IDictionary<string, string> properties)
