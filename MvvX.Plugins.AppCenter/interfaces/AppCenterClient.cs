@@ -52,7 +52,7 @@ namespace MvvX.Plugins.AppCenter
                             }
 
                             memoryStream.Seek(0, SeekOrigin.Begin);
-                            errorAttachments.Add(ErrorAttachmentLog.AttachmentWithBinary(memoryStream.ToArray(), "Additionalcontent.zip", "application/zip"));
+                            errorAttachments.Add(ErrorAttachmentLog.AttachmentWithBinary(memoryStream.ToArray(), "AdditionalContent.zip", "application/zip"));
                         }
                     }
 
