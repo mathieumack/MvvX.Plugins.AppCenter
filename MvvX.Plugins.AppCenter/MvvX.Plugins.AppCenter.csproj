@@ -23,9 +23,9 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmCross" version="6.4.0" />
-    <PackageReference Include="Microsoft.AppCenter" version="3.2.1" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" version="3.2.1" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" version="3.2.1" />
+    <PackageReference Include="Microsoft.AppCenter" version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" version="3.2.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" version="3.2.2" />
   </ItemGroup>
 
 </Project>
