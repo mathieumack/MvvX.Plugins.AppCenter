@@ -7,7 +7,7 @@ namespace MvvX.Plugins.AppCenter
     public interface IAppCenterClient
     {
         /// <summary>
-        /// 
+        /// Start configuration of the AppCenter SDK on your mobile
         /// </summary>
         /// <param name="identifier"></param>
         /// <param name="version"></param>
@@ -25,10 +25,26 @@ namespace MvvX.Plugins.AppCenter
                                 string errorTextFileAttachment,
                                 IEnumerable<string> additionnalTextFileattachment);
 
+        /// <summary>
+        /// Track a custom event
+        /// More informations : https://docs.microsoft.com/en-us/appcenter/sdk/analytics/xamarin#custom-events
+        /// </summary>
+        /// <param name="eventName"></param>
         void TrackEvent(string eventName);
 
+        /// <summary>
+        /// Track a custom event
+        /// More informations : https://docs.microsoft.com/en-us/appcenter/sdk/analytics/xamarin#custom-events
+        /// </summary>
+        /// <param name="eventName"></param>
+        /// <param name="properties"></param>
         void TrackEvent(string eventName, IDictionary<string, string> properties);
 
+        /// <summary>
+        /// Track a handled error.
+        /// More informations : https://docs.microsoft.com/en-us/appcenter/sdk/crashes/xamarin#handled-errors
+        /// </summary>
+        /// <param name="eventName"></param>
         void TrackException(Exception ex, IDictionary<string, string> properties);
     }
 }

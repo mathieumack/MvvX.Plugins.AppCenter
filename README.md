@@ -1,7 +1,9 @@
 # MvvX.AppCenter
 
-Use AppCenter SDK on a MvvmCross application.
-With this plugin, you can use an interface (IAppCenterClient) in order to use AppCenter functions
+Use AppCenter SDK on a MvvmCross application (https://www.mvvmcross.com/).
+
+> Why using a plugin as AppCenter is compatible with .net standard ?
+With a plugin, you can use an interface (IAppCenterClient) in order to use AppCenter functions
 
 =========
 
@@ -79,4 +81,4 @@ For this case, you can define additional file path to the Configure method. All 
 In this example, when a crash occured, a zipped file (named "AdditionalContent.zip") will be attached to the exception report.
 
 # Support / Contribute
-If you have any questions, problems or suggestions, create an issue or fork the project and create a Pull Request.
+> If you have any questions, problems or suggestions, create an issue or fork the project and create a Pull Request.

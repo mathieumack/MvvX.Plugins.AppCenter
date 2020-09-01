@@ -61,21 +61,25 @@ namespace MvvX.Plugins.AppCenter
             }
         }
 
+        /// <inheritdoc/>
         public void TrackEvent(string eventName)
         {
             TrackEvent(eventName, null);
         }
 
+        /// <inheritdoc/>
         public void TrackEvent(string eventName, IDictionary<string, string> properties)
         {
             Analytics.TrackEvent(eventName, properties);
         }
 
+        /// <inheritdoc/>
         public void TrackException(Exception ex)
         {
             TrackException(ex, null);
         }
 
+        /// <inheritdoc/>
         public void TrackException(Exception ex, IDictionary<string, string> properties)
         {
             Crashes.TrackError(ex, properties);
