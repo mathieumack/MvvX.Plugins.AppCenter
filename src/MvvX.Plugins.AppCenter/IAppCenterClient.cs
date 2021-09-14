@@ -44,7 +44,8 @@ namespace MvvX.Plugins.AppCenter
         /// Track a handled error.
         /// More informations : https://docs.microsoft.com/en-us/appcenter/sdk/crashes/xamarin#handled-errors
         /// </summary>
-        /// <param name="eventName"></param>
+        /// <param name="ex"></param>
+        /// <param name="properties"></param>
         void TrackException(Exception ex, IDictionary<string, string> properties);
     }
 }

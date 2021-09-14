@@ -3,7 +3,7 @@
 namespace MvvX.Plugins.AppCenter
 {
     [AttributeUsage(AttributeTargets.Class)]
-    class PreserveAttribute : Attribute
+    class PreserveAttribute : Attribute 
     {
         public PreserveAttribute() { }
         public bool AllMembers { get; set; }
