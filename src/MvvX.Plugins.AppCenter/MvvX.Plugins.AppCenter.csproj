@@ -16,16 +16,16 @@
     <Company></Company>
     <Description>This package contains the AppCenter plugin for MvvmCross</Description>
     <RepositoryUrl>https://github.com/mathieumack/MvvX.Plugins.AppCenter</RepositoryUrl>
-    <PackageTags>mvvm;mvvmcross;xamarin;android;appcenter;ios;mac;forms;monodroid;monotouch;xamarin.android;xamarin.ios;wpf;plugins</PackageTags>
+    <PackageTags>mvvm;mvvmcross;xamarin;android;appcenter</PackageTags>
     <PackageIconUrl />
     <Copyright>Copyright (c) 2019</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MvvmCross" version="6.4.2" />
-    <PackageReference Include="Microsoft.AppCenter" version="4.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" version="4.3.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" version="4.3.0" />
+    <PackageReference Include="Microsoft.AppCenter" version="4.5.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" version="4.5.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" version="4.5.0" />
   </ItemGroup>
 
 </Project>
