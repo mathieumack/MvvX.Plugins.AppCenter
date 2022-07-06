@@ -8,8 +8,8 @@ With a plugin, you can use an interface (IAppCenterClient) in order to use AppCe
 =========
 
 # IC
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=github-MvvX.Plugins.AppCenter&metric=alert_status)](https://sonarcloud.io/dashboard?id=github-MvvX.Plugins.AppCenter)
-[![Build status](https://dev.azure.com/mackmathieu/Github/_apis/build/status/MvvX.Plugins.AppCenter)](https://dev.azure.com/mackmathieu/Github/_build/latest?definitionId=7)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mathieumack_MvvX.Plugins.AppCenter&metric=alert_status)](https://sonarcloud.io/dashboard?id=mathieumack_MvvX.Plugins.AppCenter)
+[![.NET](https://github.com/mathieumack/MvvX.Plugins.AppCenter/actions/workflows/ci.yml/badge.svg)](https://github.com/mathieumack/MvvX.Plugins.AppCenter/actions/workflows/ci.yml)
 [![NuGet package](https://buildstats.info/nuget/MvvX.Plugins.AppCenter?includePreReleases=true)](https://nuget.org/packages/MvvX.Plugins.AppCenter)
 
 # Onboarding Instructions 
