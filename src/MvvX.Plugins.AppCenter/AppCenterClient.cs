@@ -10,7 +10,7 @@ using MSAppCenter = Microsoft.AppCenter.AppCenter;
 
 namespace MvvX.Plugins.AppCenter
 {
-    public abstract class BaseAppCenterClient : IAppCenterClient
+    public class AppCenterClient : IAppCenterClient
     {
         public async Task Configure(string identifier,
                                     string version,
