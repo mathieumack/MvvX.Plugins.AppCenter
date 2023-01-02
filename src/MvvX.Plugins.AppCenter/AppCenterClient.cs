@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using MSAppCenter = Microsoft.AppCenter.AppCenter;
 
 namespace MvvX.Plugins.AppCenter
 {
@@ -19,7 +20,7 @@ namespace MvvX.Plugins.AppCenter
                                     string errorTextFileAttachment,
                                     IEnumerable<string> additionnalTextFileattachment)
         {
-            Microsoft.AppCenter.AppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
+            MSAppCenter.Start(identifier, typeof(Analytics), typeof(Crashes));
 
             await Analytics.SetEnabledAsync(activateTelemetry || activateMetrics);
 
@@ -83,6 +84,18 @@ namespace MvvX.Plugins.AppCenter
         public void TrackException(Exception ex, IDictionary<string, string> properties)
         {
             Crashes.TrackError(ex, properties);
+        }
+
+        /// <inheritdoc/>
+        public void SetUserId(string userId)
+        {
+            MSAppCenter.SetUserId(userId);
+        }
+
+        /// <inheritdoc/>
+        public async Task<Guid?> GetInstallationId()
+        {
+            return await MSAppCenter.GetInstallIdAsync();
         }
     }
 }

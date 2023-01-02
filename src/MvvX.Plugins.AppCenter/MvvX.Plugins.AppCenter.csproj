@@ -1,11 +1,12 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <AssemblyName>MvvX.Plugins.AppCenter</AssemblyName>
     <RootNamespace>MvvX.Plugins.AppCenter</RootNamespace>
     <PackageId>MvvX.Plugins.AppCenter</PackageId>
-    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Product>This package contains the AppCenter plugin for MvvmCross</Product>
     <ProjectGuid>1a67985d-3b4a-483d-9efa-d822bc19ac2d</ProjectGuid>
@@ -16,16 +17,18 @@
     <Company></Company>
     <Description>This package contains the AppCenter plugin for MvvmCross</Description>
     <RepositoryUrl>https://github.com/mathieumack/MvvX.Plugins.AppCenter</RepositoryUrl>
-    <PackageTags>mvvm;mvvmcross;xamarin;android;appcenter</PackageTags>
+    <PackageTags>maui;xamarin;android;ios;appcenter</PackageTags>
     <PackageIconUrl />
-    <Copyright>Copyright (c) 2019</Copyright>
+    <Copyright>Copyright (c) 2022</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MvvmCross" version="6.4.2" />
-    <PackageReference Include="Microsoft.AppCenter" version="4.5.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" version="4.5.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" version="4.5.0" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
   </ItemGroup>
 
 </Project>

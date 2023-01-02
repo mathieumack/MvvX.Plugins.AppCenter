@@ -47,6 +47,20 @@ namespace MvvX.Plugins.AppCenter
         /// <param name="ex"></param>
         /// <param name="properties"></param>
         void TrackException(Exception ex, IDictionary<string, string> properties);
+
+        /// <summary>
+        /// Identify user
+        /// More informations : https://learn.microsoft.com/en-us/appcenter/sdk/other-apis/xamarin#identify-users
+        /// </summary>
+        /// <param name="userId"></param>
+        void SetUserId(string userId);
+
+        /// <summary>
+        /// Get unique installation identifier
+        /// More informations : https://learn.microsoft.com/en-us/appcenter/sdk/other-apis/xamarin#identify-installations
+        /// </summary>
+        /// <returns></returns>
+        Task<System.Guid?> GetInstallationId();
     }
 }
 
